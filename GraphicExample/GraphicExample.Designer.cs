@@ -29,21 +29,39 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            toolTip1 = new ToolTip(components);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GraphicExample));
+            MainToolTip = new ToolTip(components);
+            PictureBox = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)PictureBox).BeginInit();
             SuspendLayout();
+            // 
+            // PictureBox
+            // 
+            PictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            PictureBox.Image = (Image)resources.GetObject("PictureBox.Image");
+            PictureBox.InitialImage = (Image)resources.GetObject("PictureBox.InitialImage");
+            PictureBox.Location = new Point(12, 32);
+            PictureBox.Name = "PictureBox";
+            PictureBox.Size = new Size(776, 330);
+            PictureBox.TabIndex = 0;
+            PictureBox.TabStop = false;
             // 
             // GraphicExample
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(PictureBox);
+            MinimumSize = new Size(450, 450);
             Name = "GraphicExample";
             Text = "Graphic Example";
+            ((System.ComponentModel.ISupportInitialize)PictureBox).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private ToolTip toolTip1;
+        private ToolTip MainToolTip;
+        private PictureBox PictureBox;
     }
 }
