@@ -1,6 +1,6 @@
 ﻿namespace GraphicExample
 {
-    partial class GraphicExample
+    partial class GraphicsForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,39 +29,67 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GraphicExample));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GraphicsForm));
             MainToolTip = new ToolTip(components);
-            PictureBox = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)PictureBox).BeginInit();
+            DisplayPictureBox = new PictureBox();
+            ExitButton = new Button();
+            DrawButton = new Button();
+            ((System.ComponentModel.ISupportInitialize)DisplayPictureBox).BeginInit();
             SuspendLayout();
             // 
-            // PictureBox
+            // DisplayPictureBox
             // 
-            PictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            PictureBox.Image = (Image)resources.GetObject("PictureBox.Image");
-            PictureBox.InitialImage = (Image)resources.GetObject("PictureBox.InitialImage");
-            PictureBox.Location = new Point(12, 32);
-            PictureBox.Name = "PictureBox";
-            PictureBox.Size = new Size(776, 330);
-            PictureBox.TabIndex = 0;
-            PictureBox.TabStop = false;
+            DisplayPictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            DisplayPictureBox.Image = (Image)resources.GetObject("DisplayPictureBox.Image");
+            DisplayPictureBox.InitialImage = null;
+            DisplayPictureBox.Location = new Point(12, 32);
+            DisplayPictureBox.Name = "DisplayPictureBox";
+            DisplayPictureBox.Size = new Size(776, 330);
+            DisplayPictureBox.TabIndex = 0;
+            DisplayPictureBox.TabStop = false;
             // 
-            // GraphicExample
+            // ExitButton
+            // 
+            ExitButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            ExitButton.Location = new Point(646, 377);
+            ExitButton.Name = "ExitButton";
+            ExitButton.Size = new Size(142, 61);
+            ExitButton.TabIndex = 1;
+            ExitButton.Text = "E&xit";
+            ExitButton.UseVisualStyleBackColor = true;
+            ExitButton.Click += ExitButton_Click;
+            // 
+            // DrawButton
+            // 
+            DrawButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            DrawButton.Location = new Point(498, 377);
+            DrawButton.Name = "DrawButton";
+            DrawButton.Size = new Size(142, 61);
+            DrawButton.TabIndex = 2;
+            DrawButton.Text = "&Draw";
+            DrawButton.UseVisualStyleBackColor = true;
+            DrawButton.Click += DrawButton_Click;
+            // 
+            // GraphicsForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(PictureBox);
+            Controls.Add(DrawButton);
+            Controls.Add(ExitButton);
+            Controls.Add(DisplayPictureBox);
             MinimumSize = new Size(450, 450);
-            Name = "GraphicExample";
-            Text = "Graphic Example";
-            ((System.ComponentModel.ISupportInitialize)PictureBox).EndInit();
+            Name = "GraphicsForm";
+            Text = "Graphics";
+            ((System.ComponentModel.ISupportInitialize)DisplayPictureBox).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private ToolTip MainToolTip;
-        private PictureBox PictureBox;
+        private PictureBox DisplayPictureBox;
+        private Button ExitButton;
+        private Button DrawButton;
     }
 }
