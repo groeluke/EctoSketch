@@ -15,7 +15,7 @@ namespace GraphicExample
             // create a pen to draw with
             Pen thePen = new Pen(Color.Black);
             // set the width of the pen
-            thePen.Width = 3; 
+            thePen.Width = 3;
             //draw the line here 
             g.DrawLine(thePen, 0, 0, DisplayPictureBox.Width, DisplayPictureBox.Height);
 
@@ -34,7 +34,7 @@ namespace GraphicExample
             // set the width of the pen
             thePen.Width = 3;
             //draw the line here 
-            g.DrawEllipse(thePen,0,0,100,100);
+            g.DrawEllipse(thePen, 0, 0, 100, 100);
 
             // free up resources
             g.Dispose();
@@ -57,6 +57,17 @@ namespace GraphicExample
             thePen.Dispose();
         }
 
+        void ClearDrawing()
+        {
+            // create a graphics object named g that draws on the PictureBox
+            Graphics g = DisplayPictureBox.CreateGraphics();
+            // clear the drawing area
+            g.Clear(Color.White);
+            // free up resources
+            g.Dispose();
+        }
+
+
         // Event handlers -----------------------------------------------------
         private void ExitButton_Click(object sender, EventArgs e)
         {
@@ -70,5 +81,6 @@ namespace GraphicExample
             DrawLine();
             //draw
         }
+
     }
 }
