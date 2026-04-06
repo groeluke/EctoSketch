@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GraphicsForm));
             MainToolTip = new ToolTip(components);
             DisplayPictureBox = new PictureBox();
             ExitButton = new Button();
@@ -41,7 +40,7 @@
             // DisplayPictureBox
             // 
             DisplayPictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            DisplayPictureBox.Image = (Image)resources.GetObject("DisplayPictureBox.Image");
+            DisplayPictureBox.BackColor = SystemColors.ControlLightLight;
             DisplayPictureBox.InitialImage = null;
             DisplayPictureBox.Location = new Point(12, 32);
             DisplayPictureBox.Name = "DisplayPictureBox";
@@ -81,6 +80,7 @@
             ClearButton.TabStop = false;
             ClearButton.Text = "&Clear";
             ClearButton.UseVisualStyleBackColor = true;
+            ClearButton.Click += ClearButton_Click;
             // 
             // GraphicsForm
             // 

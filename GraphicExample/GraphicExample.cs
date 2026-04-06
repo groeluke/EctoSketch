@@ -5,6 +5,7 @@ namespace GraphicExample
         public GraphicsForm()
         {
             InitializeComponent();
+            
         }
         // Custom Methods -----------------------------------------------------
 
@@ -50,12 +51,52 @@ namespace GraphicExample
             // set the width of the pen
             thePen.Width = 3;
             //draw the line here 
-            g.DrawRectangle(thePen, 0, 0, 200, 200);
+            g.DrawRectangle(thePen, 400, 100, 200, 200);
 
             // free up resources
             g.Dispose();
             thePen.Dispose();
         }
+         
+        void DrawPie()
+        {
+            // create a graphics object named g that draws on the PictureBox
+            Graphics g = DisplayPictureBox.CreateGraphics();
+            // create a pen to draw with
+            Pen thePen = new Pen(Color.IndianRed);
+            SolidBrush theBrush = new SolidBrush(Color.MediumPurple);
+            Rectangle bounds = new Rectangle(0, 0, 200, 200);
+            // set the width of the pen
+            g.DrawPie(thePen, bounds, 0, 90);
+            g.FillPie(theBrush, bounds, 90, 270);
+            theBrush.Color = Color.LightGreen;
+            g.FillPie(theBrush, bounds, 45, 110);
+            theBrush.Color = Color.LightBlue;
+            g.FillPie(theBrush, bounds, 110, 170);
+
+            // free up resources
+            g.Dispose();
+            thePen.Dispose();
+            theBrush.Dispose();
+        }
+
+        void DrawString()
+        {
+            // create a graphics object named g that draws on the PictureBox
+            Graphics g = DisplayPictureBox.CreateGraphics();
+            // create a font to draw with
+            Font theFont = new Font("Arial", 16);
+            Rectangle bounds = new Rectangle(400, 100, 200, 200);
+            SolidBrush theBrush = new SolidBrush(Color.DarkBlue);
+            //draw the line here 
+            g.DrawString("I LOVE C#! Its the best. Its fantasic. ", theFont, theBrush, bounds);
+
+            // free up resources
+            g.Dispose();
+            theFont.Dispose();
+            theBrush.Dispose();
+        }
+
 
         void ClearDrawing()
         {
@@ -76,11 +117,17 @@ namespace GraphicExample
 
         private void DrawButton_Click(object sender, EventArgs e)
         {
+            DrawString();
+            DrawPie();
             DrawRectangle();
             DrawEllipse();
             DrawLine();
             //draw
         }
 
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            ClearDrawing();
+        }
     }
 }
