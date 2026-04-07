@@ -5,20 +5,20 @@ namespace GraphicExample
         public GraphicsForm()
         {
             InitializeComponent();
-            
+            DisplayPictureBox.MouseMove += DisplayPictureBox_MouseMove;
         }
         // Custom Methods -----------------------------------------------------
-
-        void DrawLine()
+        int oldX = new;
+        void DrawLineSegment(int newX, int newY)
         {
             // create a graphics object named g that draws on the PictureBox
             Graphics g = DisplayPictureBox.CreateGraphics();
             // create a pen to draw with
-            Pen thePen = new Pen(Color.Black);
+            Pen thePen = new Pen(Color.Violet);
             // set the width of the pen
             thePen.Width = 3;
             //draw the line here 
-            g.DrawLine(thePen, 0, 0, DisplayPictureBox.Width, DisplayPictureBox.Height);
+            g.DrawLine(thePen, newX, newY, newX, newY);
 
             // free up resources
             g.Dispose();
@@ -111,12 +111,6 @@ namespace GraphicExample
             g.Dispose();
             theImage.Dispose();
         }
-
-        void ToDraw(Graphics g)
-        {
-                // create a pen to draw with
-                Pen thePen = new Pen(Color.Black);
-        }
         
         void ClearDrawing()
         {
@@ -142,8 +136,13 @@ namespace GraphicExample
             DrawPie();
             DrawRectangle();
             DrawEllipse();
-            DrawLine();
             //draw
+        }
+
+        private void DisplayPictureBox_MouseMove(object sender, MouseEventArgs e)
+        {
+            this.Text = $"({e.X},{e.Y})";
+            DrawLineSegment(e.X, e.Y);
         }
 
         private void ClearButton_Click(object sender, EventArgs e)
