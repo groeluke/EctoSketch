@@ -97,7 +97,28 @@ namespace GraphicExample
             theBrush.Dispose();
         }
 
+        void DrawImage()
+        {
+            // create a graphics object named g that draws on the PictureBox
+            Graphics g = DisplayPictureBox.CreateGraphics();
+            // create image
+            Image theImage = Image.FromFile("..\\..\\..\\Sun_Set.JPG");
+            // fills the rectangle with the image
+            Rectangle bounds = new Rectangle(60, 0, 650, 350);
+            //draw the line here 
+            g.DrawImage(theImage, bounds);
 
+            // free up resources
+            g.Dispose();
+            theImage.Dispose();
+        }
+
+        void ToDraw(Graphics g)
+        {
+                // create a pen to draw with
+                Pen thePen = new Pen(Color.Black);
+        }
+        
         void ClearDrawing()
         {
             // create a graphics object named g that draws on the PictureBox
@@ -117,6 +138,7 @@ namespace GraphicExample
 
         private void DrawButton_Click(object sender, EventArgs e)
         {
+            DrawImage();
             DrawString();
             DrawPie();
             DrawRectangle();
