@@ -20,7 +20,6 @@ namespace GraphicExample
             //draw the line here 
             g.DrawLine(thePen, 0, 0, DisplayPictureBox.Width, DisplayPictureBox.Height);
 
-
             // free up resources
             g.Dispose();
             thePen.Dispose();
