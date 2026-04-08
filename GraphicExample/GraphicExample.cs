@@ -165,10 +165,6 @@ namespace GraphicExample
         private void DisplayPictureBox_MouseDown(object sender, MouseEventArgs e)
         {
             this.Text = $"({e.Button})";
-            if (e.Button == MouseButtons.Middle)
-            {
-                PenColorDialog.ShowDialog();
-            }
 
         }
 
