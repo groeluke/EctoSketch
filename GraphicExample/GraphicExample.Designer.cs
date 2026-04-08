@@ -34,6 +34,7 @@
             ExitButton = new Button();
             DrawButton = new Button();
             ClearButton = new Button();
+            PenColorDialog = new ColorDialog();
             ((System.ComponentModel.ISupportInitialize)DisplayPictureBox).BeginInit();
             SuspendLayout();
             // 
@@ -47,6 +48,7 @@
             DisplayPictureBox.Size = new Size(776, 330);
             DisplayPictureBox.TabIndex = 0;
             DisplayPictureBox.TabStop = false;
+            DisplayPictureBox.MouseDown += DisplayPictureBox_MouseDown;
             DisplayPictureBox.MouseMove += DisplayPictureBox_MouseMove;
             // 
             // ExitButton
@@ -106,5 +108,6 @@
         private Button ExitButton;
         private Button DrawButton;
         private Button ClearButton;
+        private ColorDialog PenColorDialog;
     }
 }

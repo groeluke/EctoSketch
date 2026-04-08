@@ -6,21 +6,21 @@ namespace GraphicExample
         {
             InitializeComponent();
             DisplayPictureBox.MouseMove += DisplayPictureBox_MouseMove;
+            DisplayPictureBox.MouseDown += DisplayPictureBox_MouseDown;
         }
+
         // Custom Methods -----------------------------------------------------
-        int oldX = new;
+        int oldX, oldY;
         void DrawLineSegment(int newX, int newY)
         {
-            // create a graphics object named g that draws on the PictureBox
+            //create a Graphics object named g that draws on the picture box
             Graphics g = DisplayPictureBox.CreateGraphics();
             // create a pen to draw with
-            Pen thePen = new Pen(Color.Violet);
-            // set the width of the pen
-            thePen.Width = 3;
-            //draw the line here 
-            g.DrawLine(thePen, newX, newY, newX, newY);
+            Pen thePen = new Pen(Color.Black);
+            //draw the line here
+            g.DrawLine(thePen, oldX, oldY, newX, newY);
 
-            // free up resources
+            //free up resources
             g.Dispose();
             thePen.Dispose();
         }
@@ -136,13 +136,40 @@ namespace GraphicExample
             DrawPie();
             DrawRectangle();
             DrawEllipse();
-            //draw
+
         }
 
         private void DisplayPictureBox_MouseMove(object sender, MouseEventArgs e)
         {
-            this.Text = $"({e.X},{e.Y})";
-            DrawLineSegment(e.X, e.Y);
+            this.Text = $"({e.X},{e.Y}) {e.Button}";
+            
+            switch (e.Button)
+            {
+                case MouseButtons.Left:
+                    DrawLineSegment(e.X, e.Y); // only draw when the left mouse button is down
+                    break;
+                case MouseButtons.Right:
+                    // Save for context menu
+                    break;
+                case MouseButtons.Middle:
+                    // TODO open color picker dialogue
+                    break;
+                default:
+                    //MessageBox.Show($"{e.Button}");
+                    break;
+            }
+                    // save the current mouse position for the next time we draw a line segment
+                    this.oldX = e.X;
+                    this.oldY = e.Y;
+        }
+        private void DisplayPictureBox_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.Text = $"({e.Button})";
+            if (e.Button == MouseButtons.Middle)
+            {
+                PenColorDialog.ShowDialog();
+            }
+
         }
 
         private void ClearButton_Click(object sender, EventArgs e)
