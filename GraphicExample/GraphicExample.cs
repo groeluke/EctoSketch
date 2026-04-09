@@ -5,8 +5,7 @@ namespace GraphicExample
         public GraphicsForm()
         {
             InitializeComponent();
-            DisplayPictureBox.MouseMove += DisplayPictureBox_MouseMove;
-            DisplayPictureBox.MouseDown += DisplayPictureBox_MouseDown;
+            DisplayPictureBox.MouseMove += DisplayPictureBox_MouseStuff;
         }
 
         // Custom Methods -----------------------------------------------------
@@ -139,10 +138,11 @@ namespace GraphicExample
 
         }
 
-        private void DisplayPictureBox_MouseMove(object sender, MouseEventArgs e)
+        private void DisplayPictureBox_MouseStuff(object sender, MouseEventArgs e)
         {
             this.Text = $"({e.X},{e.Y}) {e.Button}";
-            
+            this.Text = $"({e.Button})";
+
             switch (e.Button)
             {
                 case MouseButtons.Left:
@@ -161,11 +161,6 @@ namespace GraphicExample
                     // save the current mouse position for the next time we draw a line segment
                     this.oldX = e.X;
                     this.oldY = e.Y;
-        }
-        private void DisplayPictureBox_MouseDown(object sender, MouseEventArgs e)
-        {
-            this.Text = $"({e.Button})";
-
         }
 
         private void ClearButton_Click(object sender, EventArgs e)

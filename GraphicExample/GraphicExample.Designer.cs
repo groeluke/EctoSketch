@@ -48,8 +48,7 @@
             DisplayPictureBox.Size = new Size(776, 330);
             DisplayPictureBox.TabIndex = 0;
             DisplayPictureBox.TabStop = false;
-            DisplayPictureBox.MouseDown += DisplayPictureBox_MouseDown;
-            DisplayPictureBox.MouseMove += DisplayPictureBox_MouseMove;
+            DisplayPictureBox.MouseMove += DisplayPictureBox_MouseStuff;
             // 
             // ExitButton
             // 
