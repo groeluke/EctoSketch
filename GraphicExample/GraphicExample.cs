@@ -8,6 +8,8 @@ namespace GraphicExample
             DisplayPictureBox.MouseMove += DisplayPictureBox_MouseStuff;
         }
 
+
+
         // Custom Methods -----------------------------------------------------
         int oldX, oldY;
         void DrawLineSegment(int newX, int newY)
@@ -25,59 +27,59 @@ namespace GraphicExample
             thePen.Dispose();
         }
 
-        void DrawEllipse()
-        {
-            // create a graphics object named g that draws on the PictureBox
-            Graphics g = DisplayPictureBox.CreateGraphics();
-            // create a pen to draw with
-            Pen thePen = new Pen(Color.DarkOrange);
-            // set the width of the pen
-            thePen.Width = 3;
-            //draw the line here 
-            g.DrawEllipse(thePen, 0, 0, 100, 100);
+        //void DrawEllipse()
+        //{
+        //    // create a graphics object named g that draws on the PictureBox
+        //    Graphics g = DisplayPictureBox.CreateGraphics();
+        //    // create a pen to draw with
+        //    Pen thePen = new Pen(Color.DarkOrange);
+        //    // set the width of the pen
+        //    thePen.Width = 3;
+        //    //draw the line here 
+        //    g.DrawEllipse(thePen, 0, 0, 100, 100);
 
-            // free up resources
-            g.Dispose();
-            thePen.Dispose();
-        }
+        //    // free up resources
+        //    g.Dispose();
+        //    thePen.Dispose();
+        //}
 
-        void DrawRectangle()
-        {
-            // create a graphics object named g that draws on the PictureBox
-            Graphics g = DisplayPictureBox.CreateGraphics();
-            // create a pen to draw with
-            Pen thePen = new Pen(Color.DeepPink);
-            // set the width of the pen
-            thePen.Width = 3;
-            //draw the line here 
-            g.DrawRectangle(thePen, 400, 100, 200, 200);
+        //void DrawRectangle()
+        //{
+        //    // create a graphics object named g that draws on the PictureBox
+        //    Graphics g = DisplayPictureBox.CreateGraphics();
+        //    // create a pen to draw with
+        //    Pen thePen = new Pen(Color.DeepPink);
+        //    // set the width of the pen
+        //    thePen.Width = 3;
+        //    //draw the line here 
+        //    g.DrawRectangle(thePen, 400, 100, 200, 200);
 
-            // free up resources
-            g.Dispose();
-            thePen.Dispose();
-        }
+        //    // free up resources
+        //    g.Dispose();
+        //    thePen.Dispose();
+        //}
          
-        void DrawPie()
-        {
-            // create a graphics object named g that draws on the PictureBox
-            Graphics g = DisplayPictureBox.CreateGraphics();
-            // create a pen to draw with
-            Pen thePen = new Pen(Color.IndianRed);
-            SolidBrush theBrush = new SolidBrush(Color.MediumPurple);
-            Rectangle bounds = new Rectangle(0, 0, 200, 200);
-            // set the width of the pen
-            g.DrawPie(thePen, bounds, 0, 90);
-            g.FillPie(theBrush, bounds, 90, 270);
-            theBrush.Color = Color.LightGreen;
-            g.FillPie(theBrush, bounds, 45, 110);
-            theBrush.Color = Color.LightBlue;
-            g.FillPie(theBrush, bounds, 110, 170);
+        //void DrawPie()
+        //{
+        //    // create a graphics object named g that draws on the PictureBox
+        //    Graphics g = DisplayPictureBox.CreateGraphics();
+        //    // create a pen to draw with
+        //    Pen thePen = new Pen(Color.IndianRed);
+        //    SolidBrush theBrush = new SolidBrush(Color.MediumPurple);
+        //    Rectangle bounds = new Rectangle(0, 0, 200, 200);
+        //    // set the width of the pen
+        //    g.DrawPie(thePen, bounds, 0, 90);
+        //    g.FillPie(theBrush, bounds, 90, 270);
+        //    theBrush.Color = Color.LightGreen;
+        //    g.FillPie(theBrush, bounds, 45, 110);
+        //    theBrush.Color = Color.LightBlue;
+        //    g.FillPie(theBrush, bounds, 110, 170);
 
-            // free up resources
-            g.Dispose();
-            thePen.Dispose();
-            theBrush.Dispose();
-        }
+        //    // free up resources
+        //    g.Dispose();
+        //    thePen.Dispose();
+        //    theBrush.Dispose();
+        //}
 
         void DrawString()
         {
@@ -129,6 +131,33 @@ namespace GraphicExample
             // TODO open color picker dialogue and set the pen color
         }
 
+        void DrawSineWave()
+        {
+            // create a graphics object named g that draws on the PictureBox
+            Graphics g = DisplayPictureBox.CreateGraphics();
+            // create a pen to draw with
+            Pen thePen = new Pen(Color.Lime);
+            // set the width of the pen
+            thePen.Width = 3;
+            int lastX = 0, lastY = 0, currentY = 0;
+            // draw the line here 
+            for (int currentX = 0; currentX < DisplayPictureBox.Width; currentX++)
+            {
+                currentY = (int) Math.Round(100 * Math.Sin(currentX * .05)) + 150;
+                g.DrawLine(thePen, lastX, lastY, currentX + 1, currentY);
+                lastX = currentX + 1;
+                lastY = currentY + 1;
+            }
+
+            //for (int x = 0; x < DisplayPictureBox.Width; x++)
+            //{
+            //    int y = (int)(100 * Math.Sin(x * 0.05)) + 150;
+            //    g.DrawLine(thePen, x, y, x + 1, (int)(100 * Math.Sin((x + 1) * 0.05)) + 150
+            //}
+            // free up resources
+            g.Dispose();
+            thePen.Dispose();
+        }
 
         // Event handlers -----------------------------------------------------
         private void ExitButton_Click(object sender, EventArgs e)
@@ -140,10 +169,10 @@ namespace GraphicExample
         {
             DrawImage();
             DrawString();
-            DrawPie();
-            DrawRectangle();
-            DrawEllipse();
-
+         //   DrawPie();
+         //   DrawRectangle();
+         //   DrawEllipse();
+            DrawSineWave();
         }
 
         private void DisplayPictureBox_MouseStuff(object sender, MouseEventArgs e)
