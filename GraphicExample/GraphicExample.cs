@@ -87,7 +87,7 @@ namespace GraphicExample
             Graphics g = DisplayPictureBox.CreateGraphics();
             // create a font to draw with
             Font theFont = new Font("Arial", 16);
-            Rectangle bounds = new Rectangle(400, 100, 200, 200);
+            Rectangle bounds = new Rectangle(100, 100, 200, 200);
             SolidBrush theBrush = new SolidBrush(Color.DarkBlue);
             //draw the line here 
             g.DrawString("I LOVE C#! Its the best. Its fantasic. ", theFont, theBrush, bounds);
@@ -141,20 +141,21 @@ namespace GraphicExample
             thePen.Width = 3;
             int lastX = 0, lastY = 0, currentY = 0;
             // draw the line here 
-            for (int currentX = 0; currentX < DisplayPictureBox.Width; currentX++)
+            float scaleX = DisplayPictureBox.Width / 360f;
+            float scaleY = (DisplayPictureBox.Height / 200f) * -1;
+            // scale the x-axis so that one period of the sine wave fits in the width of the picture box
+            g.TranslateTransform(0 , DisplayPictureBox.Height / 2);
+            // move the origin (start) of the drawing area to the center of the picture box
+            g.ScaleTransform(scaleX, scaleY);
+            // scale the drawing area so that the sine wave is wider and flip
+            // the y-axis so that positive values go upinstead of down
+            for (int currentX = 0; currentX < 360; currentX++)
             {
-                currentY = (int) Math.Round(100 * Math.Sin(currentX * 0.05)) + 150;
-                g.DrawLine(thePen, lastX, lastY, currentX + 1, currentY);
-                lastX = currentX + 1;
-                lastY = currentY + 1;
+                currentY = (int) (Math.Round(100 * Math.Sin((Math.PI / 180) * currentX)));
+                g.DrawLine(thePen, lastX, lastY, currentX, currentY);
+                lastX = currentX;
+                lastY = currentY;
             }
-
-            //for (int x = 0; x < DisplayPictureBox.Width; x++)
-            //{
-            //    int y = (int)(100 * Math.Sin(x * 0.05)) + 150;
-            //    g.DrawLine(thePen, x, y, x + 1, (int)(100 * Math.Sin((x + 1) * 0.05)) + 150
-            //}
-            // free up resources
             g.Dispose();
             thePen.Dispose();
         }
