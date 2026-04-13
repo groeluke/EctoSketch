@@ -143,7 +143,7 @@ namespace GraphicExample
             // draw the line here 
             for (int currentX = 0; currentX < DisplayPictureBox.Width; currentX++)
             {
-                currentY = (int) Math.Round(100 * Math.Sin(currentX * .05)) + 150;
+                currentY = (int) Math.Round(100 * Math.Sin(currentX * 0.05)) + 150;
                 g.DrawLine(thePen, lastX, lastY, currentX + 1, currentY);
                 lastX = currentX + 1;
                 lastY = currentY + 1;
