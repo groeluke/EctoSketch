@@ -58,7 +58,7 @@ namespace GraphicExample
         //    g.Dispose();
         //    thePen.Dispose();
         //}
-         
+
         //void DrawPie()
         //{
         //    // create a graphics object named g that draws on the PictureBox
@@ -81,39 +81,39 @@ namespace GraphicExample
         //    theBrush.Dispose();
         //}
 
-        void DrawString()
-        {
-            // create a graphics object named g that draws on the PictureBox
-            Graphics g = DisplayPictureBox.CreateGraphics();
-            // create a font to draw with
-            Font theFont = new Font("Arial", 16);
-            Rectangle bounds = new Rectangle(100, 100, 200, 200);
-            SolidBrush theBrush = new SolidBrush(Color.DarkBlue);
-            //draw the line here 
-            g.DrawString("I LOVE C#! Its the best. Its fantasic. ", theFont, theBrush, bounds);
+        //void DrawString()
+        //{
+        //    // create a graphics object named g that draws on the PictureBox
+        //    Graphics g = DisplayPictureBox.CreateGraphics();
+        //    // create a font to draw with
+        //    Font theFont = new Font("Arial", 16);
+        //    Rectangle bounds = new Rectangle(100, 100, 200, 200);
+        //    SolidBrush theBrush = new SolidBrush(Color.DarkBlue);
+        //    //draw the line here 
+        //    g.DrawString("I LOVE C#! Its the best. Its fantasic. ", theFont, theBrush, bounds);
 
-            // free up resources
-            g.Dispose();
-            theFont.Dispose();
-            theBrush.Dispose();
-        }
+        //    // free up resources
+        //    g.Dispose();
+        //    theFont.Dispose();
+        //    theBrush.Dispose();
+        //}
 
-        void DrawImage()
-        {
-            // create a graphics object named g that draws on the PictureBox
-            Graphics g = DisplayPictureBox.CreateGraphics();
-            // create image
-            Image theImage = Image.FromFile("..\\..\\..\\Sun_Set.JPG");
-            // fills the rectangle with the image
-            Rectangle bounds = new Rectangle(60, 0, 650, 350);
-            //draw the line here 
-            g.DrawImage(theImage, bounds);
+        //void DrawImage()
+        //{
+        //    // create a graphics object named g that draws on the PictureBox
+        //    Graphics g = DisplayPictureBox.CreateGraphics();
+        //    // create image
+        //    Image theImage = Image.FromFile("..\\..\\..\\Sun_Set.JPG");
+        //    // fills the rectangle with the image
+        //    Rectangle bounds = new Rectangle(60, 0, 650, 350);
+        //    //draw the line here 
+        //    g.DrawImage(theImage, bounds);
 
-            // free up resources
-            g.Dispose();
-            theImage.Dispose();
-        }
-        
+        //    // free up resources
+        //    g.Dispose();
+        //    theImage.Dispose();
+        //}
+
         void ClearDrawing()
         {
             // create a graphics object named g that draws on the PictureBox
@@ -160,6 +160,27 @@ namespace GraphicExample
             thePen.Dispose();
         }
 
+        void DrawGrid()
+        {
+            // create a graphics object named g that draws on the PictureBox
+            Graphics g = DisplayPictureBox.CreateGraphics();
+            // create a pen to draw with
+            Pen thePen = new Pen(Color.LightGray);
+            // set the width of the pen
+            thePen.Width = 1;
+            // draw the line here 
+            for (int x = 0; x < DisplayPictureBox.Width; x += 100)
+            {
+                g.DrawLine(thePen, x, 0, x, DisplayPictureBox.Height);
+            }
+            for (int y = 0; y < DisplayPictureBox.Height; y += 100)
+            {
+                g.DrawLine(thePen, 0, y, DisplayPictureBox.Width, y);
+            }
+            g.Dispose();
+            thePen.Dispose();
+        }
+
         // Event handlers -----------------------------------------------------
         private void ExitButton_Click(object sender, EventArgs e)
         {
@@ -168,12 +189,13 @@ namespace GraphicExample
 
         private void DrawButton_Click(object sender, EventArgs e)
         {
-            DrawImage();
-            DrawString();
+            //DrawImage();
+            //DrawString();
          //   DrawPie();
          //   DrawRectangle();
          //   DrawEllipse();
             DrawSineWave();
+            DrawGrid();
         }
 
         private void DisplayPictureBox_MouseStuff(object sender, MouseEventArgs e)
