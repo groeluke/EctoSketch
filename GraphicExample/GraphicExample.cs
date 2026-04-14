@@ -128,7 +128,6 @@ namespace GraphicExample
         {
             PenColorDialog.ShowDialog();
             this.penColor = PenColorDialog.Color;
-            // TODO open color picker dialogue and set the pen color
         }
 
         void DrawSineWave()
