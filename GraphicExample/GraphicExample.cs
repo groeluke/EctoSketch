@@ -18,7 +18,7 @@ namespace GraphicExample
             Graphics g = DisplayPictureBox.CreateGraphics();
             // create a pen to draw with
             Pen thePen = new Pen(this.penColor);
-            thePen.Width = 3;
+            thePen.Width = this.penWidth;
             //draw the line here
             g.DrawLine(thePen, oldX, oldY, newX, newY);
 
@@ -124,12 +124,15 @@ namespace GraphicExample
             g.Dispose();
         }
         private Color penColor = Color.Black;
+        private Color BackGround = Color.White;
+        private int penWidth = 3;
+
         void UpdatePenColor()
         {
             PenColorDialog.ShowDialog();
             this.penColor = PenColorDialog.Color;
         }
-
+        
         void DrawSineWave()
         {
             // create a graphics object named g that draws on the PictureBox
@@ -143,14 +146,14 @@ namespace GraphicExample
             float scaleX = DisplayPictureBox.Width / 360f;
             float scaleY = (DisplayPictureBox.Height / 200f) * -1;
             // scale the x-axis so that one period of the sine wave fits in the width of the picture box
-            g.TranslateTransform(0 , DisplayPictureBox.Height / 2);
+            g.TranslateTransform(0, DisplayPictureBox.Height / 2);
             // move the origin (start) of the drawing area to the center of the picture box
             g.ScaleTransform(scaleX, scaleY);
             // scale the drawing area so that the sine wave is wider and flip
             // the y-axis so that positive values go upinstead of down
             for (int currentX = 0; currentX < 360; currentX++)
             {
-                currentY = (int) (Math.Round(100 * Math.Sin((Math.PI / 180) * currentX)));
+                currentY = (int)(Math.Round(100 * Math.Sin((Math.PI / 180) * currentX)));
                 g.DrawLine(thePen, lastX, lastY, currentX, currentY);
                 lastX = currentX;
                 lastY = currentY;
@@ -190,9 +193,9 @@ namespace GraphicExample
         {
             //DrawImage();
             //DrawString();
-         //   DrawPie();
-         //   DrawRectangle();
-         //   DrawEllipse();
+            //   DrawPie();
+            //   DrawRectangle();
+            //   DrawEllipse();
             DrawSineWave();
             DrawGrid();
         }
@@ -218,14 +221,54 @@ namespace GraphicExample
                     //MessageBox.Show($"{e.Button}");
                     break;
             }
-                    // save the current mouse position for the next time we draw a line segment
-                    this.oldX = e.X;
-                    this.oldY = e.Y;
+            // save the current mouse position for the next time we draw a line segment
+            this.oldX = e.X;
+            this.oldY = e.Y;
         }
 
         private void ClearButton_Click(object sender, EventArgs e)
         {
             ClearDrawing();
+        }
+
+        private void DrawMenuItem_Click(object sender, EventArgs e)
+        {
+            DrawButton_Click(sender, e);
+        }
+
+        private void ClearMenuItem_Click(object sender, EventArgs e)
+        {
+            ClearDrawing();
+        }
+
+        private void PenMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdatePenColor();
+        }
+
+        private void BackGroundMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateBackGroundColor();
+        }
+
+        private void ToolComboBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DrawTopMenuItem_Click(object sender, EventArgs e)
+        {
+            DrawButton_Click(sender, e);
+        }
+
+        private void ClearTopMenuItem_Click(object sender, EventArgs e)
+        {
+            ClearDrawing();
+        }
+
+        private void ExitTopMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
