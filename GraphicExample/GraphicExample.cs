@@ -6,6 +6,13 @@ namespace GraphicExample
         {
             InitializeComponent();
             DisplayPictureBox.MouseMove += DisplayPictureBox_MouseStuff;
+            ToolComboBox.Items.Add(2);
+            ToolComboBox.Items.Add(3);
+            ToolComboBox.Items.Add(4);
+            ToolComboBox.Items.Add(5);
+            ToolComboBox.Items.Add(6);
+            ToolComboBox.Items.Add(7);
+            ToolComboBox.SelectedIndex = 1;
         }
 
 
@@ -27,92 +34,92 @@ namespace GraphicExample
             thePen.Dispose();
         }
 
-        //void DrawEllipse()
-        //{
-        //    // create a graphics object named g that draws on the PictureBox
-        //    Graphics g = DisplayPictureBox.CreateGraphics();
-        //    // create a pen to draw with
-        //    Pen thePen = new Pen(Color.DarkOrange);
-        //    // set the width of the pen
-        //    thePen.Width = 3;
-        //    //draw the line here 
-        //    g.DrawEllipse(thePen, 0, 0, 100, 100);
+        void DrawEllipse()
+        {
+            // create a graphics object named g that draws on the PictureBox
+            Graphics g = DisplayPictureBox.CreateGraphics();
+            // create a pen to draw with
+            Pen thePen = new Pen(Color.DarkOrange);
+            // set the width of the pen
+            thePen.Width = 3;
+            //draw the line here 
+            g.DrawEllipse(thePen, 0, 0, 100, 100);
 
-        //    // free up resources
-        //    g.Dispose();
-        //    thePen.Dispose();
-        //}
+            // free up resources
+            g.Dispose();
+            thePen.Dispose();
+        }
 
-        //void DrawRectangle()
-        //{
-        //    // create a graphics object named g that draws on the PictureBox
-        //    Graphics g = DisplayPictureBox.CreateGraphics();
-        //    // create a pen to draw with
-        //    Pen thePen = new Pen(Color.DeepPink);
-        //    // set the width of the pen
-        //    thePen.Width = 3;
-        //    //draw the line here 
-        //    g.DrawRectangle(thePen, 400, 100, 200, 200);
+        void DrawRectangle()
+        {
+            // create a graphics object named g that draws on the PictureBox
+            Graphics g = DisplayPictureBox.CreateGraphics();
+            // create a pen to draw with
+            Pen thePen = new Pen(Color.DeepPink);
+            // set the width of the pen
+            thePen.Width = 3;
+            //draw the line here 
+            g.DrawRectangle(thePen, 400, 100, 200, 200);
 
-        //    // free up resources
-        //    g.Dispose();
-        //    thePen.Dispose();
-        //}
+            // free up resources
+            g.Dispose();
+            thePen.Dispose();
+        }
 
-        //void DrawPie()
-        //{
-        //    // create a graphics object named g that draws on the PictureBox
-        //    Graphics g = DisplayPictureBox.CreateGraphics();
-        //    // create a pen to draw with
-        //    Pen thePen = new Pen(Color.IndianRed);
-        //    SolidBrush theBrush = new SolidBrush(Color.MediumPurple);
-        //    Rectangle bounds = new Rectangle(0, 0, 200, 200);
-        //    // set the width of the pen
-        //    g.DrawPie(thePen, bounds, 0, 90);
-        //    g.FillPie(theBrush, bounds, 90, 270);
-        //    theBrush.Color = Color.LightGreen;
-        //    g.FillPie(theBrush, bounds, 45, 110);
-        //    theBrush.Color = Color.LightBlue;
-        //    g.FillPie(theBrush, bounds, 110, 170);
+        void DrawPie()
+        {
+            // create a graphics object named g that draws on the PictureBox
+            Graphics g = DisplayPictureBox.CreateGraphics();
+            // create a pen to draw with
+            Pen thePen = new Pen(Color.IndianRed);
+            SolidBrush theBrush = new SolidBrush(Color.MediumPurple);
+            Rectangle bounds = new Rectangle(0, 0, 200, 200);
+            // set the width of the pen
+            g.DrawPie(thePen, bounds, 0, 90);
+            g.FillPie(theBrush, bounds, 90, 270);
+            theBrush.Color = Color.LightGreen;
+            g.FillPie(theBrush, bounds, 45, 110);
+            theBrush.Color = Color.LightBlue;
+            g.FillPie(theBrush, bounds, 110, 170);
 
-        //    // free up resources
-        //    g.Dispose();
-        //    thePen.Dispose();
-        //    theBrush.Dispose();
-        //}
+            // free up resources
+            g.Dispose();
+            thePen.Dispose();
+            theBrush.Dispose();
+        }
 
-        //void DrawString()
-        //{
-        //    // create a graphics object named g that draws on the PictureBox
-        //    Graphics g = DisplayPictureBox.CreateGraphics();
-        //    // create a font to draw with
-        //    Font theFont = new Font("Arial", 16);
-        //    Rectangle bounds = new Rectangle(100, 100, 200, 200);
-        //    SolidBrush theBrush = new SolidBrush(Color.DarkBlue);
-        //    //draw the line here 
-        //    g.DrawString("I LOVE C#! Its the best. Its fantasic. ", theFont, theBrush, bounds);
+        void DrawString()
+        {
+            // create a graphics object named g that draws on the PictureBox
+            Graphics g = DisplayPictureBox.CreateGraphics();
+            // create a font to draw with
+            Font theFont = new Font("Arial", 16);
+            Rectangle bounds = new Rectangle(100, 100, 200, 200);
+            SolidBrush theBrush = new SolidBrush(Color.DarkBlue);
+            //draw the line here 
+            g.DrawString("I LOVE C#! Its the best. Its fantasic. ", theFont, theBrush, bounds);
 
-        //    // free up resources
-        //    g.Dispose();
-        //    theFont.Dispose();
-        //    theBrush.Dispose();
-        //}
+            // free up resources
+            g.Dispose();
+            theFont.Dispose();
+            theBrush.Dispose();
+        }
 
-        //void DrawImage()
-        //{
-        //    // create a graphics object named g that draws on the PictureBox
-        //    Graphics g = DisplayPictureBox.CreateGraphics();
-        //    // create image
-        //    Image theImage = Image.FromFile("..\\..\\..\\Sun_Set.JPG");
-        //    // fills the rectangle with the image
-        //    Rectangle bounds = new Rectangle(60, 0, 650, 350);
-        //    //draw the line here 
-        //    g.DrawImage(theImage, bounds);
+        void DrawImage()
+        {
+            // create a graphics object named g that draws on the PictureBox
+            Graphics g = DisplayPictureBox.CreateGraphics();
+            // create image
+            Image theImage = Image.FromFile("..\\..\\..\\Sun_Set.JPG");
+            // fills the rectangle with the image
+            Rectangle bounds = new Rectangle(60, 0, 650, 350);
+            //draw the line here 
+            g.DrawImage(theImage, bounds);
 
-        //    // free up resources
-        //    g.Dispose();
-        //    theImage.Dispose();
-        //}
+            // free up resources
+            g.Dispose();
+            theImage.Dispose();
+        }
 
         void ClearDrawing()
         {
@@ -132,7 +139,19 @@ namespace GraphicExample
             PenColorDialog.ShowDialog();
             this.penColor = PenColorDialog.Color;
         }
-        
+
+        void UpdateBackGroundColor()
+        {
+            PenColorDialog.ShowDialog();
+            this.BackGround = PenColorDialog.Color;
+            DisplayPictureBox.BackColor = this.BackGround;
+        }
+
+        void UpdatePenWidth()
+        {
+            this.penWidth = int.Parse(ToolComboBox.SelectedItem.ToString());
+        }
+
         void DrawSineWave()
         {
             // create a graphics object named g that draws on the PictureBox
@@ -202,8 +221,7 @@ namespace GraphicExample
 
         private void DisplayPictureBox_MouseStuff(object sender, MouseEventArgs e)
         {
-            this.Text = $"({e.X},{e.Y}) {e.Button}";
-            this.Text = $"({e.Button})";
+            DrawingStatusLabel.Text = $"({e.X},{e.Y}) {e.Button}";
 
             switch (e.Button)
             {
@@ -253,7 +271,7 @@ namespace GraphicExample
 
         private void ToolComboBox_Click(object sender, EventArgs e)
         {
-
+            UpdatePenWidth();
         }
 
         private void DrawTopMenuItem_Click(object sender, EventArgs e)
@@ -269,6 +287,16 @@ namespace GraphicExample
         private void ExitTopMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void StatusStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void DrawingStatusLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

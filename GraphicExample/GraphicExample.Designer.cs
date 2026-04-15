@@ -50,9 +50,12 @@
             ExitTopMenuItem = new ToolStripMenuItem();
             HelpTopMenuItem = new ToolStripMenuItem();
             AboutTopStripMenuItem = new ToolStripMenuItem();
+            BottomStatusStrip = new StatusStrip();
+            DrawingStatusLabel = new ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)DisplayPictureBox).BeginInit();
             DisplayContextMenuStrip.SuspendLayout();
             TopMenuStrip.SuspendLayout();
+            BottomStatusStrip.SuspendLayout();
             SuspendLayout();
             // 
             // DisplayPictureBox
@@ -61,9 +64,10 @@
             DisplayPictureBox.BackColor = SystemColors.ControlLightLight;
             DisplayPictureBox.ContextMenuStrip = DisplayContextMenuStrip;
             DisplayPictureBox.InitialImage = null;
-            DisplayPictureBox.Location = new Point(12, 32);
+            DisplayPictureBox.Location = new Point(14, 38);
+            DisplayPictureBox.Margin = new Padding(4);
             DisplayPictureBox.Name = "DisplayPictureBox";
-            DisplayPictureBox.Size = new Size(776, 330);
+            DisplayPictureBox.Size = new Size(931, 437);
             DisplayPictureBox.TabIndex = 0;
             DisplayPictureBox.TabStop = false;
             DisplayPictureBox.MouseMove += DisplayPictureBox_MouseStuff;
@@ -126,9 +130,10 @@
             // ExitButton
             // 
             ExitButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            ExitButton.Location = new Point(646, 377);
+            ExitButton.Location = new Point(775, 482);
+            ExitButton.Margin = new Padding(4);
             ExitButton.Name = "ExitButton";
-            ExitButton.Size = new Size(142, 61);
+            ExitButton.Size = new Size(170, 73);
             ExitButton.TabIndex = 1;
             ExitButton.Text = "E&xit";
             ExitButton.UseVisualStyleBackColor = true;
@@ -137,9 +142,10 @@
             // DrawButton
             // 
             DrawButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            DrawButton.Location = new Point(498, 377);
+            DrawButton.Location = new Point(598, 482);
+            DrawButton.Margin = new Padding(4);
             DrawButton.Name = "DrawButton";
-            DrawButton.Size = new Size(142, 61);
+            DrawButton.Size = new Size(170, 73);
             DrawButton.TabIndex = 2;
             DrawButton.Text = "&Draw";
             DrawButton.UseVisualStyleBackColor = true;
@@ -148,9 +154,10 @@
             // ClearButton
             // 
             ClearButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            ClearButton.Location = new Point(350, 377);
+            ClearButton.Location = new Point(420, 482);
+            ClearButton.Margin = new Padding(4);
             ClearButton.Name = "ClearButton";
-            ClearButton.Size = new Size(142, 61);
+            ClearButton.Size = new Size(170, 73);
             ClearButton.TabIndex = 3;
             ClearButton.TabStop = false;
             ClearButton.Text = "&Clear";
@@ -159,38 +166,40 @@
             // 
             // TopMenuStrip
             // 
+            TopMenuStrip.Font = new Font("Source Code Pro", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             TopMenuStrip.ImageScalingSize = new Size(24, 24);
             TopMenuStrip.Items.AddRange(new ToolStripItem[] { FileTopMenuItem, HelpTopMenuItem });
             TopMenuStrip.Location = new Point(0, 0);
             TopMenuStrip.Name = "TopMenuStrip";
-            TopMenuStrip.Size = new Size(800, 33);
+            TopMenuStrip.Padding = new Padding(7, 2, 0, 2);
+            TopMenuStrip.Size = new Size(960, 38);
             TopMenuStrip.TabIndex = 4;
             // 
             // FileTopMenuItem
             // 
             FileTopMenuItem.DropDownItems.AddRange(new ToolStripItem[] { DrawTopMenuItem, ClearTopMenuItem, ExitTopMenuItem });
             FileTopMenuItem.Name = "FileTopMenuItem";
-            FileTopMenuItem.Size = new Size(54, 29);
+            FileTopMenuItem.Size = new Size(77, 34);
             FileTopMenuItem.Text = "File";
             // 
             // DrawTopMenuItem
             // 
             DrawTopMenuItem.Name = "DrawTopMenuItem";
-            DrawTopMenuItem.Size = new Size(270, 34);
+            DrawTopMenuItem.Size = new Size(270, 38);
             DrawTopMenuItem.Text = "&Draw";
             DrawTopMenuItem.Click += DrawTopMenuItem_Click;
             // 
             // ClearTopMenuItem
             // 
             ClearTopMenuItem.Name = "ClearTopMenuItem";
-            ClearTopMenuItem.Size = new Size(270, 34);
+            ClearTopMenuItem.Size = new Size(270, 38);
             ClearTopMenuItem.Text = "&Clear";
             ClearTopMenuItem.Click += ClearTopMenuItem_Click;
             // 
             // ExitTopMenuItem
             // 
             ExitTopMenuItem.Name = "ExitTopMenuItem";
-            ExitTopMenuItem.Size = new Size(270, 34);
+            ExitTopMenuItem.Size = new Size(270, 38);
             ExitTopMenuItem.Text = "E&xit";
             ExitTopMenuItem.Click += ExitTopMenuItem_Click;
             // 
@@ -198,33 +207,57 @@
             // 
             HelpTopMenuItem.DropDownItems.AddRange(new ToolStripItem[] { AboutTopStripMenuItem });
             HelpTopMenuItem.Name = "HelpTopMenuItem";
-            HelpTopMenuItem.Size = new Size(65, 29);
+            HelpTopMenuItem.Size = new Size(77, 34);
             HelpTopMenuItem.Text = "&Help";
             // 
             // AboutTopStripMenuItem
             // 
             AboutTopStripMenuItem.Name = "AboutTopStripMenuItem";
-            AboutTopStripMenuItem.Size = new Size(164, 34);
+            AboutTopStripMenuItem.Size = new Size(176, 38);
             AboutTopStripMenuItem.Text = "&About";
+            // 
+            // BottomStatusStrip
+            // 
+            BottomStatusStrip.ImageScalingSize = new Size(24, 24);
+            BottomStatusStrip.Items.AddRange(new ToolStripItem[] { DrawingStatusLabel });
+            BottomStatusStrip.Location = new Point(0, 549);
+            BottomStatusStrip.Name = "BottomStatusStrip";
+            BottomStatusStrip.Padding = new Padding(1, 0, 17, 0);
+            BottomStatusStrip.Size = new Size(960, 32);
+            BottomStatusStrip.TabIndex = 5;
+            BottomStatusStrip.Text = "statusStrip1";
+            BottomStatusStrip.ItemClicked += StatusStrip_ItemClicked;
+            // 
+            // DrawingStatusLabel
+            // 
+            DrawingStatusLabel.Name = "DrawingStatusLabel";
+            DrawingStatusLabel.Size = new Size(19, 25);
+            DrawingStatusLabel.Text = "-";
+            DrawingStatusLabel.Click += DrawingStatusLabel_Click;
             // 
             // GraphicsForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(960, 581);
+            Controls.Add(BottomStatusStrip);
             Controls.Add(ClearButton);
             Controls.Add(DrawButton);
             Controls.Add(ExitButton);
             Controls.Add(DisplayPictureBox);
             Controls.Add(TopMenuStrip);
+            Font = new Font("Source Code Pro", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             MainMenuStrip = TopMenuStrip;
-            MinimumSize = new Size(450, 450);
+            Margin = new Padding(4);
+            MinimumSize = new Size(536, 529);
             Name = "GraphicsForm";
             Text = "Graphics";
             ((System.ComponentModel.ISupportInitialize)DisplayPictureBox).EndInit();
             DisplayContextMenuStrip.ResumeLayout(false);
             TopMenuStrip.ResumeLayout(false);
             TopMenuStrip.PerformLayout();
+            BottomStatusStrip.ResumeLayout(false);
+            BottomStatusStrip.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -252,5 +285,7 @@
         private ToolStripMenuItem BackGroundMenuItem;
         private ToolStripMenuItem PenSizeMenuItem;
         private ToolStripComboBox ToolComboBox;
+        private StatusStrip BottomStatusStrip;
+        private ToolStripStatusLabel DrawingStatusLabel;
     }
 }
