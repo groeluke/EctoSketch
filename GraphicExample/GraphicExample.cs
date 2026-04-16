@@ -15,6 +15,18 @@ namespace GraphicExample
             ToolComboBox.SelectedIndex = 1;
         }
 
+        private void SplashForm()
+        {
+            SplashForm splashForm = new SplashForm(); //instantitate the splash form
+            splashForm.ShowDialog += SplashForm_FormClosed; //map the FormClosed event to a handler
+            splashForm.Show(); // show the splash form
+            this.Hide();
+        }
+
+        private void SplashForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Show(); // show the main form again when the splash form is closed
+        }
 
 
         // Custom Methods -----------------------------------------------------
@@ -301,8 +313,17 @@ namespace GraphicExample
 
         private void AboutTopStripMenuItem_Click(object sender, EventArgs e)
         {
-            AboutForm aboutForm = new AboutForm();
-            aboutForm.ShowDialog(this);
+            AboutForm aboutForm = new AboutForm(); //instantitate the about form
+            aboutForm.FormClosed += AboutForm_FormClosed; //map the FormClosed event to a handler
+            aboutForm.Show(); // show the about form
+            this.Hide();// hide the main form while the about form is open
         }
+        
+        private void AboutForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Show(); // show the main form again when the about form is closed
+        }
+
+
     }
 }
