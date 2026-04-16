@@ -221,7 +221,7 @@ namespace GraphicExample
 
         private void DisplayPictureBox_MouseStuff(object sender, MouseEventArgs e)
         {
-            DrawingStatusLabel.Text = $"({e.X},{e.Y}) {e.Button}";
+            DrawingStatusLabel.Text = $"({e.X},{e.Y}) | {e.Button} | {this.penColor} | {this.penWidth}";
 
             switch (e.Button)
             {
@@ -297,6 +297,12 @@ namespace GraphicExample
         private void DrawingStatusLabel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void AboutTopStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutForm aboutForm = new AboutForm();
+            aboutForm.ShowDialog(this);
         }
     }
 }

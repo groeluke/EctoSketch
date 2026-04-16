@@ -133,7 +133,7 @@
             ExitButton.Location = new Point(775, 482);
             ExitButton.Margin = new Padding(4);
             ExitButton.Name = "ExitButton";
-            ExitButton.Size = new Size(170, 73);
+            ExitButton.Size = new Size(170, 63);
             ExitButton.TabIndex = 1;
             ExitButton.Text = "E&xit";
             ExitButton.UseVisualStyleBackColor = true;
@@ -145,7 +145,7 @@
             DrawButton.Location = new Point(598, 482);
             DrawButton.Margin = new Padding(4);
             DrawButton.Name = "DrawButton";
-            DrawButton.Size = new Size(170, 73);
+            DrawButton.Size = new Size(170, 63);
             DrawButton.TabIndex = 2;
             DrawButton.Text = "&Draw";
             DrawButton.UseVisualStyleBackColor = true;
@@ -157,7 +157,7 @@
             ClearButton.Location = new Point(420, 482);
             ClearButton.Margin = new Padding(4);
             ClearButton.Name = "ClearButton";
-            ClearButton.Size = new Size(170, 73);
+            ClearButton.Size = new Size(170, 63);
             ClearButton.TabIndex = 3;
             ClearButton.TabStop = false;
             ClearButton.Text = "&Clear";
@@ -185,21 +185,21 @@
             // DrawTopMenuItem
             // 
             DrawTopMenuItem.Name = "DrawTopMenuItem";
-            DrawTopMenuItem.Size = new Size(270, 38);
+            DrawTopMenuItem.Size = new Size(176, 38);
             DrawTopMenuItem.Text = "&Draw";
             DrawTopMenuItem.Click += DrawTopMenuItem_Click;
             // 
             // ClearTopMenuItem
             // 
             ClearTopMenuItem.Name = "ClearTopMenuItem";
-            ClearTopMenuItem.Size = new Size(270, 38);
+            ClearTopMenuItem.Size = new Size(176, 38);
             ClearTopMenuItem.Text = "&Clear";
             ClearTopMenuItem.Click += ClearTopMenuItem_Click;
             // 
             // ExitTopMenuItem
             // 
             ExitTopMenuItem.Name = "ExitTopMenuItem";
-            ExitTopMenuItem.Size = new Size(270, 38);
+            ExitTopMenuItem.Size = new Size(176, 38);
             ExitTopMenuItem.Text = "E&xit";
             ExitTopMenuItem.Click += ExitTopMenuItem_Click;
             // 
@@ -213,8 +213,9 @@
             // AboutTopStripMenuItem
             // 
             AboutTopStripMenuItem.Name = "AboutTopStripMenuItem";
-            AboutTopStripMenuItem.Size = new Size(176, 38);
+            AboutTopStripMenuItem.Size = new Size(270, 38);
             AboutTopStripMenuItem.Text = "&About";
+            AboutTopStripMenuItem.Click += AboutTopStripMenuItem_Click;
             // 
             // BottomStatusStrip
             // 
