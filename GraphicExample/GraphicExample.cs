@@ -134,16 +134,13 @@ namespace GraphicExample
         {
             // create a graphics object named g that draws on the PictureBox
             Graphics g = DisplayPictureBox.CreateGraphics();
-            // clear the drawing area
-            g.Clear(Color.White);
-            // 1. Clear your controls first
             
-            // 2. Shake the form
+            // Shake the form
             var original = this.Location; // save the original position of the form
             var random = new Random(); // create a random number generator
             int shake_amplitude = 75; // how far the form should shake in pixels
             // play sound effect 
-            System.Media.SoundPlayer player = new System.Media.SoundPlayer("..\\..\\..\\Resources\\shake.wav");
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer("..\\..\\..\\Resources_shaker.wav");
             player.Play();
 
             for (int i = 0; i < 15; i++) // shake the form 15 times
@@ -154,7 +151,8 @@ namespace GraphicExample
                     original.Y + random.Next(-shake_amplitude, shake_amplitude));// shake vertically
                 System.Threading.Thread.Sleep(100); // Small pause for visibility
             }
-
+            // clear the drawing by filling the picture box
+            g.Clear(Color.White);
             // Reset to original position
             this.Location = original;
 
