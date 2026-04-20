@@ -149,7 +149,7 @@ namespace GraphicExample
                 this.Location = new Point(
                     original.X + random.Next(-shake_amplitude, shake_amplitude), // shake horizontally
                     original.Y + random.Next(-shake_amplitude, shake_amplitude));// shake vertically
-                System.Threading.Thread.Sleep(100); // Small pause for visibility
+                System.Threading.Thread.Sleep(150); // Small pause for visibility
             }
             // clear the drawing by filling the picture box
             g.Clear(Color.White);
