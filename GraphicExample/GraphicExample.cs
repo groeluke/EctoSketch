@@ -1,3 +1,4 @@
+using System.Media;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace GraphicExample
@@ -38,7 +39,7 @@ namespace GraphicExample
         {
             SplashForm splashForm = new SplashForm(); //instantitate the splash form
             splashForm.Show(); // show the splash form
-            System.Threading.Thread.Sleep(3000);// pause the main thread for 3 seconds to allow the splash form to be visible
+            System.Threading.Thread.Sleep(1000);// pause the main thread for 3 seconds to allow the splash form to be visible
             splashForm.Close(); // close the splash form after 3 seconds
         }
 
@@ -140,15 +141,18 @@ namespace GraphicExample
             // 2. Shake the form
             var original = this.Location; // save the original position of the form
             var random = new Random(); // create a random number generator
-            int shake_amplitude = 50; // how far the form should shake in pixels
+            int shake_amplitude = 75; // how far the form should shake in pixels
+            // play sound effect 
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer("..\\..\\..\\Resources\\shake.wav");
+            player.Play();
 
             for (int i = 0; i < 15; i++) // shake the form 15 times
             {
                 // Randomly offset the form's position
                 this.Location = new Point(
-                    original.X + random.Next(-shake_amplitude, shake_amplitude),// shake horizontally
+                    original.X + random.Next(-shake_amplitude, shake_amplitude), // shake horizontally
                     original.Y + random.Next(-shake_amplitude, shake_amplitude));// shake vertically
-                System.Threading.Thread.Sleep(40); // Small pause for visibility
+                System.Threading.Thread.Sleep(100); // Small pause for visibility
             }
 
             // Reset to original position

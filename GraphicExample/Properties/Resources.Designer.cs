@@ -59,5 +59,25 @@ namespace GraphicExample.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] merlinlightpainting_abstract_6047465_1920 {
+            get {
+                object obj = ResourceManager.GetObject("merlinlightpainting-abstract-6047465_1920", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Resources_shaker {
+            get {
+                object obj = ResourceManager.GetObject("Resources_shaker", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }
