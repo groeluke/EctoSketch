@@ -213,7 +213,7 @@
             // AboutTopStripMenuItem
             // 
             AboutTopStripMenuItem.Name = "AboutTopStripMenuItem";
-            AboutTopStripMenuItem.Size = new Size(270, 38);
+            AboutTopStripMenuItem.Size = new Size(176, 38);
             AboutTopStripMenuItem.Text = "&About";
             AboutTopStripMenuItem.Click += AboutTopStripMenuItem_Click;
             // 

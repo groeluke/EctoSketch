@@ -14,11 +14,5 @@ namespace GraphicExample
         {
             InitializeComponent();
         }
-        private void SplashForm_Load(object sender, EventArgs e)
-        {
-            // Simulate some loading work
-            System.Threading.Thread.Sleep(2000); // Sleep for 2 seconds
-            this.Close(); // Close the splash screen after loading is done
-        }
     }
 }

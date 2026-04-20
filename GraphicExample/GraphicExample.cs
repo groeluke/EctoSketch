@@ -1,9 +1,12 @@
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 namespace GraphicExample
 {
     public partial class GraphicsForm : Form
     {
         public GraphicsForm()
         {
+            SplashForm(); // show the splash form before initializing the main form
             InitializeComponent();
             DisplayPictureBox.MouseMove += DisplayPictureBox_MouseStuff;
             ToolComboBox.Items.Add(2);
@@ -14,20 +17,6 @@ namespace GraphicExample
             ToolComboBox.Items.Add(7);
             ToolComboBox.SelectedIndex = 1;
         }
-
-        private void SplashForm()
-        {
-            SplashForm splashForm = new SplashForm(); //instantitate the splash form
-            splashForm.ShowDialog += SplashForm_FormClosed; //map the FormClosed event to a handler
-            splashForm.Show(); // show the splash form
-            this.Hide();
-        }
-
-        private void SplashForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            this.Show(); // show the main form again when the splash form is closed
-        }
-
 
         // Custom Methods -----------------------------------------------------
         int oldX, oldY;
@@ -44,6 +33,13 @@ namespace GraphicExample
             //free up resources
             g.Dispose();
             thePen.Dispose();
+        }
+        private void SplashForm()
+        {
+            SplashForm splashForm = new SplashForm(); //instantitate the splash form
+            splashForm.Show(); // show the splash form
+            System.Threading.Thread.Sleep(3000);// pause the main thread for 3 seconds to allow the splash form to be visible
+            splashForm.Close(); // close the splash form after 3 seconds
         }
 
         void DrawEllipse()
@@ -139,9 +135,29 @@ namespace GraphicExample
             Graphics g = DisplayPictureBox.CreateGraphics();
             // clear the drawing area
             g.Clear(Color.White);
+            // 1. Clear your controls first
+            
+            // 2. Shake the form
+            var original = this.Location; // save the original position of the form
+            var random = new Random(); // create a random number generator
+            int shake_amplitude = 50; // how far the form should shake in pixels
+
+            for (int i = 0; i < 15; i++) // shake the form 15 times
+            {
+                // Randomly offset the form's position
+                this.Location = new Point(
+                    original.X + random.Next(-shake_amplitude, shake_amplitude),// shake horizontally
+                    original.Y + random.Next(-shake_amplitude, shake_amplitude));// shake vertically
+                System.Threading.Thread.Sleep(40); // Small pause for visibility
+            }
+
+            // Reset to original position
+            this.Location = original;
+
             // free up resources
             g.Dispose();
         }
+
         private Color penColor = Color.Black;
         private Color BackGround = Color.White;
         private int penWidth = 3;
@@ -318,12 +334,10 @@ namespace GraphicExample
             aboutForm.Show(); // show the about form
             this.Hide();// hide the main form while the about form is open
         }
-        
+
         private void AboutForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Show(); // show the main form again when the about form is closed
         }
-
-
     }
 }

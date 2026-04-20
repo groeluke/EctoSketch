@@ -41,17 +41,16 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.DeepSkyBlue;
+            BackColor = Color.Lime;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Zoom;
-            ClientSize = new Size(763, 464);
+            ClientSize = new Size(1065, 627);
             FormBorderStyle = FormBorderStyle.None;
             Name = "SplashForm";
             SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Splash Form";
-            TransparencyKey = Color.DeepSkyBlue;
-            WindowState = FormWindowState.Minimized;
+            TransparencyKey = Color.Lime;
             ResumeLayout(false);
         }
 
