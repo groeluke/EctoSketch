@@ -134,7 +134,7 @@
             ExitButton.Margin = new Padding(4);
             ExitButton.Name = "ExitButton";
             ExitButton.Size = new Size(170, 63);
-            ExitButton.TabIndex = 1;
+            ExitButton.TabIndex = 3;
             ExitButton.Text = "E&xit";
             ExitButton.UseVisualStyleBackColor = true;
             ExitButton.Click += ExitButton_Click;
@@ -146,7 +146,7 @@
             DrawButton.Margin = new Padding(4);
             DrawButton.Name = "DrawButton";
             DrawButton.Size = new Size(170, 63);
-            DrawButton.TabIndex = 2;
+            DrawButton.TabIndex = 1;
             DrawButton.Text = "&Draw";
             DrawButton.UseVisualStyleBackColor = true;
             DrawButton.Click += DrawButton_Click;
@@ -158,7 +158,7 @@
             ClearButton.Margin = new Padding(4);
             ClearButton.Name = "ClearButton";
             ClearButton.Size = new Size(170, 63);
-            ClearButton.TabIndex = 3;
+            ClearButton.TabIndex = 2;
             ClearButton.TabStop = false;
             ClearButton.Text = "&Clear";
             ClearButton.UseVisualStyleBackColor = true;
@@ -238,8 +238,10 @@
             // 
             // GraphicsForm
             // 
+            AcceptButton = DrawButton;
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = ClearButton;
             ClientSize = new Size(960, 581);
             Controls.Add(BottomStatusStrip);
             Controls.Add(ClearButton);

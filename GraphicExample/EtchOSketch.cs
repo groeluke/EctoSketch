@@ -157,7 +157,7 @@ namespace GraphicExample
             // create a graphics object named g that draws on the PictureBox
             Graphics g = DisplayPictureBox.CreateGraphics();
             // create a pen to draw with
-            Pen thePen = new Pen(Color.LightGoldenrodYellow);
+            Pen thePen = new Pen(Color.RebeccaPurple);
             // set the width of the pen
             thePen.Width = 3;
             int lastX = 0, lastY = 0, currentY = 0;
@@ -229,7 +229,8 @@ namespace GraphicExample
 
         private void DisplayPictureBox_MouseStuff(object sender, MouseEventArgs e)
         {
-            DrawingStatusLabel.Text = $"({e.X},{e.Y}) | {e.Button} | {this.penColor} | {this.penWidth}";
+            DrawingStatusLabel.Text = $"({e.X},{e.Y}) | {e.Button} " +
+                $"| {this.penColor} | {this.penWidth}";
 
             switch (e.Button)
             {
