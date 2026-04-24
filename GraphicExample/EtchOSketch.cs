@@ -169,27 +169,22 @@ namespace GraphicExample
             g.ScaleTransform(scaleX, scaleY);
             // scale the drawing area so that the sine wave is wider and flip
             // the y-axis so that positive values go upinstead of down
-            
+
             for (int currentX = 0; currentX < 360; currentX++)
             {
-                double angle = Math.PI / 180.0 * currentX;
-                double tanValue = Math.Tan(angle);
-
-                if (double.IsNaN(tanValue) || Math.Abs(tanValue) > 30)
+                currentY = (int)(Math.Round(100 * Math.Tan((Math.PI / 180) * currentX)));
+                if (Math.Abs(currentY) < DisplayPictureBox.Height / 2)
                 {
-                    lastX = currentX;           // just skip don't draw
-                    lastY = 0;
-                    continue;
+                    g.DrawLine(thePen, lastX, lastY, currentX, currentY);
                 }
-
-               currentY = (int)(100 * tanValue);
-
-                g.DrawLine(thePen, lastX, lastY, currentX, currentY);
-
                 lastX = currentX;
                 lastY = currentY;
+                // makes sure that the tan wave doesn't draw that would be outside
+                // the picture box
             }
+            //free up resorces
             g.Dispose();
+            thePen.Dispose();
         }
 
         void DrawGrid()
@@ -296,16 +291,6 @@ namespace GraphicExample
         private void ExitTopMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void StatusStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void DrawingStatusLabel_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void AboutTopStripMenuItem_Click(object sender, EventArgs e)

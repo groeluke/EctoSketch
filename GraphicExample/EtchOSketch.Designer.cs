@@ -227,14 +227,12 @@
             BottomStatusStrip.Size = new Size(960, 32);
             BottomStatusStrip.TabIndex = 5;
             BottomStatusStrip.Text = "statusStrip1";
-            BottomStatusStrip.ItemClicked += StatusStrip_ItemClicked;
             // 
             // DrawingStatusLabel
             // 
             DrawingStatusLabel.Name = "DrawingStatusLabel";
             DrawingStatusLabel.Size = new Size(19, 25);
             DrawingStatusLabel.Text = "-";
-            DrawingStatusLabel.Click += DrawingStatusLabel_Click;
             // 
             // GraphicsForm
             // 
