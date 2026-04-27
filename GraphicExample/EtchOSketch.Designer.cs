@@ -44,7 +44,7 @@
             ClearButton = new Button();
             PenColorDialog = new ColorDialog();
             TopMenuStrip = new MenuStrip();
-            FileTopMenuItem = new ToolStripMenuItem();
+            MenuTopMenuItem = new ToolStripMenuItem();
             DrawTopMenuItem = new ToolStripMenuItem();
             ClearTopMenuItem = new ToolStripMenuItem();
             ExitTopMenuItem = new ToolStripMenuItem();
@@ -168,38 +168,38 @@
             // 
             TopMenuStrip.Font = new Font("Source Code Pro", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             TopMenuStrip.ImageScalingSize = new Size(24, 24);
-            TopMenuStrip.Items.AddRange(new ToolStripItem[] { FileTopMenuItem, HelpTopMenuItem });
+            TopMenuStrip.Items.AddRange(new ToolStripItem[] { MenuTopMenuItem, HelpTopMenuItem });
             TopMenuStrip.Location = new Point(0, 0);
             TopMenuStrip.Name = "TopMenuStrip";
             TopMenuStrip.Padding = new Padding(7, 2, 0, 2);
             TopMenuStrip.Size = new Size(960, 38);
             TopMenuStrip.TabIndex = 4;
             // 
-            // FileTopMenuItem
+            // MenuTopMenuItem
             // 
-            FileTopMenuItem.DropDownItems.AddRange(new ToolStripItem[] { DrawTopMenuItem, ClearTopMenuItem, ExitTopMenuItem });
-            FileTopMenuItem.Name = "FileTopMenuItem";
-            FileTopMenuItem.Size = new Size(77, 34);
-            FileTopMenuItem.Text = "File";
+            MenuTopMenuItem.DropDownItems.AddRange(new ToolStripItem[] { DrawTopMenuItem, ClearTopMenuItem, ExitTopMenuItem });
+            MenuTopMenuItem.Name = "MenuTopMenuItem";
+            MenuTopMenuItem.Size = new Size(77, 34);
+            MenuTopMenuItem.Text = "Menu";
             // 
             // DrawTopMenuItem
             // 
             DrawTopMenuItem.Name = "DrawTopMenuItem";
-            DrawTopMenuItem.Size = new Size(176, 38);
+            DrawTopMenuItem.Size = new Size(270, 38);
             DrawTopMenuItem.Text = "&Draw";
             DrawTopMenuItem.Click += DrawTopMenuItem_Click;
             // 
             // ClearTopMenuItem
             // 
             ClearTopMenuItem.Name = "ClearTopMenuItem";
-            ClearTopMenuItem.Size = new Size(176, 38);
+            ClearTopMenuItem.Size = new Size(270, 38);
             ClearTopMenuItem.Text = "&Clear";
             ClearTopMenuItem.Click += ClearTopMenuItem_Click;
             // 
             // ExitTopMenuItem
             // 
             ExitTopMenuItem.Name = "ExitTopMenuItem";
-            ExitTopMenuItem.Size = new Size(176, 38);
+            ExitTopMenuItem.Size = new Size(270, 38);
             ExitTopMenuItem.Text = "E&xit";
             ExitTopMenuItem.Click += ExitTopMenuItem_Click;
             // 
@@ -213,7 +213,7 @@
             // AboutTopStripMenuItem
             // 
             AboutTopStripMenuItem.Name = "AboutTopStripMenuItem";
-            AboutTopStripMenuItem.Size = new Size(176, 38);
+            AboutTopStripMenuItem.Size = new Size(270, 38);
             AboutTopStripMenuItem.Text = "&About";
             AboutTopStripMenuItem.Click += AboutTopStripMenuItem_Click;
             // 
@@ -272,7 +272,7 @@
         private Button ClearButton;
         private ColorDialog PenColorDialog;
         private MenuStrip TopMenuStrip;
-        private ToolStripMenuItem FileTopMenuItem;
+        private ToolStripMenuItem MenuTopMenuItem;
         private ToolStripMenuItem DrawTopMenuItem;
         private ToolStripMenuItem ClearTopMenuItem;
         private ToolStripMenuItem ExitTopMenuItem;
