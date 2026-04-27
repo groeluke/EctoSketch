@@ -1,5 +1,10 @@
-using System.Media;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+/*Luke Groesbeck
+Spring 2026
+RCET 2265
+Project Etch-A-Sketch
+Computer Fundamentals and Introduction to Programming
+https://github.com/groeluke/EctoSketch.git
+*/
 
 namespace GraphicExample
 {
