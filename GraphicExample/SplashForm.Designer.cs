@@ -35,7 +35,7 @@
             // 
             // SplashTimer
             // 
-            SplashTimer.Interval = 3000;
+            SplashTimer.Interval = 1000;
             // 
             // SplashForm
             // 

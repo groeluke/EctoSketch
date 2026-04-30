@@ -19,7 +19,7 @@ namespace GraphicExample
         void UpdateLabel()
         {
             AboutOkLabel.Text =
-                $"Graphics Example\n" +
+                $"Etch-O-Sketch\n" +
                 $"ACME Inc.\n" +
                 $"Version 1.0.0\n" +
                 $"123Wabbit Woad\n" +
