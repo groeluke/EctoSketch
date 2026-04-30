@@ -44,8 +44,8 @@ namespace GraphicExample
         {
             SplashForm splashForm = new SplashForm(); //instantitate the splash form
             splashForm.Show(); // show the splash form
-            System.Threading.Thread.Sleep(1000);// pause the main thread for 3 seconds to allow the splash form to be visible
-            splashForm.Close(); // close the splash form after 3 seconds
+            System.Threading.Thread.Sleep(1000);// pause the main thread for 1 seconds to allow the splash form to be visible
+            splashForm.Close(); // close the splash form after 1 seconds
         }
 
 
